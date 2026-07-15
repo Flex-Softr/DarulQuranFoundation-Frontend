@@ -1,5 +1,6 @@
 import { getCurrentUser } from "@/services/AuthService/server";
 import { getClientToken } from "@/lib/tokenUtils";
+import { api } from "@/config";
 
 export interface Company {
   _id: string;
@@ -9,9 +10,6 @@ export interface Company {
   id: string;
 }
 
-const API_BASE_URL =
-  process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api/v1";
-
 // Search companies by term
 export const searchCompanies = async (
   searchTerm: string = ""
@@ -20,7 +18,6 @@ export const searchCompanies = async (
     const user = await getCurrentUser();
     if (!user) {
       console.warn("User not authenticated via getCurrentUser");
-      // Don't throw error, just return empty result
       return { success: false, message: "User not authenticated" };
     }
 
@@ -32,12 +29,11 @@ export const searchCompanies = async (
     if (!token) {
       console.error("No token found in localStorage");
       console.log("localStorage contents:", Object.keys(localStorage));
-      // Don't throw error, just return empty result
       return { success: false, message: "No access token found" };
     }
 
     const response = await fetch(
-      `${API_BASE_URL}/company/search${
+      `${api.baseUrl}/company/search${
         searchTerm ? `?searchTerm=${searchTerm}` : ""
       }`,
       {
@@ -83,7 +79,7 @@ export const getAllCompanies = async (): Promise<{
       throw new Error("No access token found");
     }
 
-    const response = await fetch(`${API_BASE_URL}/company`, {
+    const response = await fetch(`${api.baseUrl}/company`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -127,7 +123,7 @@ export const createCompany = async (
       return { success: false, message: "No access token found" };
     }
 
-    const response = await fetch(`${API_BASE_URL}/company`, {
+    const response = await fetch(`${api.baseUrl}/company`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
