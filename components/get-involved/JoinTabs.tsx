@@ -1,4 +1,4 @@
-import Tabs from '@/components/ui/Tabs';
+import Tabs from '@/components/ui/tabs';
 import MemberApplication from '@/components/get-involved/MemberApplication';
 
 export default function JoinTabs(): JSX.Element {

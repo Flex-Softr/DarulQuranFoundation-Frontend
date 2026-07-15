@@ -1,6 +1,6 @@
 import Container from '@/components/layout/Container';
 import ActivityCard from '@/components/activity/ActivityCard';
-import Pagination from '@/components/ui/Pagination';
+import Pagination from '@/components/ui/pagination';
 import PageHero from '@/components/common/PageHero';
 import { buildStaticActivities } from '@/data/activities';
 

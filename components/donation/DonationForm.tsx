@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import Input from '@/components/ui/input';
-import Select, { SelectOption } from '@/components/ui/Select';
+import Select, { SelectOption } from '@/components/ui/select';
 import Button from '@/components/ui/button';
 
 export type DonationFormProps = {

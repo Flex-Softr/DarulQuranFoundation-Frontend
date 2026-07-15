@@ -3,7 +3,7 @@
 import * as React from 'react';
 import Button from '@/components/ui/button';
 import Container from '@/components/layout/Container';
-import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from '@/components/ui/Carousel';
+import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from '@/components/ui/carousel';
 
 type Fund = {
   id: string;

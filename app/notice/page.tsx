@@ -1,5 +1,5 @@
 import Container from '@/components/layout/Container';
-import Pagination from '@/components/ui/Pagination';
+import Pagination from '@/components/ui/pagination';
 import NoticeCard from '@/components/notice/NoticeCard';
 import PageHero from '@/components/common/PageHero';
 import { buildStaticNotices } from '@/data/notices';

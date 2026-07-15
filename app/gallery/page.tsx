@@ -1,5 +1,5 @@
 import Container from '@/components/layout/Container';
-import Pagination from '@/components/ui/Pagination';
+import Pagination from '@/components/ui/pagination';
 import Gallery from '@/components/sections/Gallery';
 import Link from 'next/link';
 import PageHero from '@/components/common/PageHero';

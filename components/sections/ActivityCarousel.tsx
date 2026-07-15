@@ -3,7 +3,7 @@
 import * as React from 'react';
 import Link from 'next/link';
 import Container from '@/components/layout/Container';
-import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from '@/components/ui/Carousel';
+import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from '@/components/ui/carousel';
 import type { ActivityItem } from '@/components/activity/ActivityCard';
 import { getLatestActivities } from '@/data/activities';
 

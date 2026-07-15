@@ -1,5 +1,5 @@
 import Container from '@/components/layout/Container';
-import Pagination from '@/components/ui/Pagination';
+import Pagination from '@/components/ui/pagination';
 import BlogCard from '@/components/blog/BlogCard';
 import PageHero from '@/components/common/PageHero';
 import { buildStaticBlogs } from '@/data/blogs';

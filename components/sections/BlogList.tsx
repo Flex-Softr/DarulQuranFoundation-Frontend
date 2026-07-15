@@ -6,7 +6,7 @@ import Container from '@/components/layout/Container';
 import Button from '@/components/ui/button';
 import BlogCard, { BlogPost } from '@/components/blog/BlogCard';
 import { getLatestBlogs } from '@/data/blogs';
-import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from '@/components/ui/Carousel';
+import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from '@/components/ui/carousel';
 
 export default function BlogList({ posts }: { posts?: ReadonlyArray<BlogPost> }): JSX.Element {
   // Use provided posts or get latest 3 blogs from shared data

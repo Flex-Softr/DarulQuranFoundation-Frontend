@@ -1,5 +1,5 @@
 import Container from '@/components/layout/Container';
-import Tabs, { TabItem } from '@/components/ui/Tabs';
+import Tabs, { TabItem } from '@/components/ui/tabs';
 
 const policies = (
   <ul className="space-y-4">

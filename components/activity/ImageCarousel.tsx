@@ -8,7 +8,7 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from '@/components/ui/Carousel';
+} from '@/components/ui/carousel';
 
 type ImageCarouselProps = {
   images: string[];
