@@ -13,7 +13,7 @@ export default function BlogCard({ post }: { post: BlogPost }): JSX.Element {
   const href = post.href || `/blog/${post.id}`;
   
   return (
-    <Link href={href} className="block rounded-2xl border border-gray-200 overflow-hidden bg-white shadow-sm hover:shadow-md transition-all duration-300 group">
+    <Link href={href as any} className="block rounded-2xl border border-gray-200 overflow-hidden bg-white shadow-sm hover:shadow-md transition-all duration-300 group">
       <div className="aspect-[16/10] w-full bg-gray-200 overflow-hidden">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={post.image} alt={post.title} className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-300" />

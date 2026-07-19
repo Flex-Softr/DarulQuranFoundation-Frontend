@@ -1,7 +1,7 @@
 "use server";
 
 
-import { getNewToken } from "@/services/AuthService";
+import { getNewToken } from "@/services/AuthService/server";
 import { jwtDecode } from "jwt-decode";
 import { cookies } from "next/headers";
 

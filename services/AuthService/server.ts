@@ -1,11 +1,10 @@
 "use server";
 
-import { jwtDecode } from "jwt-decode";
+import { jwtDecode, JwtPayload } from "jwt-decode";
 import { revalidateTag } from "next/cache";
 import { cookies } from "next/headers";
 import { FieldValues } from "react-hook-form";
 import { api } from "@/config";
-import { JWTPayload } from "@/type";
 
 export const registerUser = async (data: unknown) => {
   const token = (await cookies()).get("accessToken")?.value;
@@ -75,7 +74,7 @@ export const getCurrentUser = async () => {
       return null;
     }
 
-    return decodedData as JWTPayload;
+    return decodedData as { role: string; identifier: string; email: string };
   } catch (error) {
     console.error("Error decoding token:", error);
     try {
@@ -111,4 +110,3 @@ export const getNewToken = async () => {
     return Promise.reject(error);
   }
 };
-

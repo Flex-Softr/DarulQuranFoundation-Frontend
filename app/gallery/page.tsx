@@ -21,7 +21,8 @@ function buildGallery(year?: number, category?: string, type: string = 'image'):
   return { items, total: items.length, years, categories };
 }
 
-export default async function GalleryPage({ searchParams }: { searchParams?: { page?: string; year?: string; category?: string; type?: string } }) {
+export default async function GalleryPage(props: { searchParams: Promise<{ page?: string; year?: string; category?: string; type?: string }> }) {
+  const searchParams = await props.searchParams;
   const current = Math.max(1, Number(searchParams?.page || '1'));
   const year = searchParams?.year ? Number(searchParams.year) : undefined;
   const category = searchParams?.category || 'সবগুলো';
@@ -52,7 +53,7 @@ export default async function GalleryPage({ searchParams }: { searchParams?: { p
             {['image', 'video'].map((t) => (
               <Link
                 key={t}
-                href={makeHref(1).replace(`type=${type}`, `type=${t}`)}
+                href={makeHref(1).replace(`type=${type}`, `type=${t}`) as any}
                 className={`px-6 py-3 rounded-full border font-semibold transition-all ${
                   type === t
                     ? 'bg-brand text-white border-brand shadow-md'
@@ -82,7 +83,7 @@ export default async function GalleryPage({ searchParams }: { searchParams?: { p
                   return (
                     <Link
                       key={c}
-                      href={href}
+                      href={href as any}
                       className={`block rounded-lg px-4 py-3 transition-all ${
                         selected
                           ? 'bg-white text-brand font-semibold shadow-sm border border-brand/20'
@@ -102,7 +103,7 @@ export default async function GalleryPage({ searchParams }: { searchParams?: { p
               <div className="relative overflow-x-auto pb-2">
                 <div className="flex items-center gap-3 min-w-max">
                   <Link
-                    href={makeHref(1).replace(/year=\d+/, '').replace('??', '?')}
+                    href={makeHref(1).replace(/year=\d+/, '').replace('??', '?') as any}
                     className={`px-5 py-2.5 rounded-full border font-medium transition-all whitespace-nowrap ${
                       !year
                         ? 'bg-brand text-white border-brand shadow-md'
@@ -124,7 +125,7 @@ export default async function GalleryPage({ searchParams }: { searchParams?: { p
                     return (
                       <Link
                         key={y}
-                        href={href}
+                        href={href as any}
                         className={`px-5 py-2.5 rounded-full border font-medium transition-all whitespace-nowrap ${
                           selected
                             ? 'bg-brand text-white border-brand shadow-md'

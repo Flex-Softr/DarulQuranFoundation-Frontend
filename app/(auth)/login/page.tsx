@@ -1,4 +1,5 @@
-import LoginForm from '@/components/auth/LoginForm';
+import LoginForm from "@/components/auth/LoginForm";
+import { Suspense } from "react";
 
 export default function LoginPage(): JSX.Element {
   return (
@@ -6,7 +7,9 @@ export default function LoginPage(): JSX.Element {
       <div className="w-full max-w-5xl bg-white rounded-3xl shadow-xl overflow-hidden flex flex-col lg:flex-row">
         {/* Left Section - Login Form (2/3 width) */}
         <div className="w-full lg:w-2/3 p-8 md:p-12 lg:p-16 flex flex-col justify-center">
-          <LoginForm isLogin />
+          <Suspense fallback={<div></div>}>
+            <LoginForm isLogin />
+          </Suspense>
         </div>
 
         {/* Right Section - Illustration (1/3 width) */}
@@ -35,7 +38,14 @@ export default function LoginPage(): JSX.Element {
               <circle cx="320" cy="400" r="6" fill="#66BB6A" />
 
               {/* Fence */}
-              <rect x="50" y="360" width="300" height="25" fill="#81C7D4" opacity="0.7" />
+              <rect
+                x="50"
+                y="360"
+                width="300"
+                height="25"
+                fill="#81C7D4"
+                opacity="0.7"
+              />
               <rect x="50" y="365" width="300" height="2" fill="#5BA3B5" />
 
               {/* Palm Tree */}
@@ -75,5 +85,3 @@ export default function LoginPage(): JSX.Element {
     </div>
   );
 }
-
-

@@ -4,7 +4,8 @@ import BlogCard from '@/components/blog/BlogCard';
 import PageHero from '@/components/common/PageHero';
 import { buildStaticBlogs } from '@/data/blogs';
 
-export default async function BlogArchive({ searchParams }: { searchParams?: { page?: string } }): Promise<JSX.Element> {
+export default async function BlogArchive(props: { searchParams: Promise<{ page?: string }> }): Promise<JSX.Element> {
+  const searchParams = await props.searchParams;
   const perPage = 9;
   const current = Math.max(1, Number(searchParams?.page || '1'));
   const all = buildStaticBlogs();

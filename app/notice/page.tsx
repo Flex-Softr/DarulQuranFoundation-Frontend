@@ -4,7 +4,8 @@ import NoticeCard from '@/components/notice/NoticeCard';
 import PageHero from '@/components/common/PageHero';
 import { buildStaticNotices } from '@/data/notices';
 
-export default async function NoticePage({ searchParams }: { searchParams?: { page?: string } }): Promise<JSX.Element> {
+export default async function NoticePage(props: { searchParams: Promise<{ page?: string }> }): Promise<JSX.Element> {
+  const searchParams = await props.searchParams;
   const perPage = 10;
   const current = Math.max(1, Number(searchParams?.page || '1'));
   const all = buildStaticNotices();

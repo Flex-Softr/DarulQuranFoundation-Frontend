@@ -1,5 +1,4 @@
 interface Config {
-    apiUrl: any;
     api: {
       baseUrl: string;
       timeout: number;

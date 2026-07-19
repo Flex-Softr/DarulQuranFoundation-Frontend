@@ -4,7 +4,8 @@ import Pagination from '@/components/ui/pagination';
 import PageHero from '@/components/common/PageHero';
 import { buildStaticActivities } from '@/data/activities';
 
-export default async function ActivitiesPage({ searchParams }: { searchParams?: { page?: string } }): Promise<JSX.Element> {
+export default async function ActivitiesPage(props: { searchParams: Promise<{ page?: string }> }): Promise<JSX.Element> {
+  const searchParams = await props.searchParams;
   const perPage = 9;
   const current = Math.max(1, Number(searchParams?.page || '1'));
   const all = buildStaticActivities();

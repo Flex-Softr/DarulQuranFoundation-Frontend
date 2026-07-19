@@ -1,7 +1,5 @@
 "use server";
 
-import { BlogPostForm } from "@/components/module/users/CreateBlog/CreateBlog";
-import { IPost } from "@/type";
 import { revalidateTag } from "next/cache";
 import { cookies } from "next/headers";
 import { api } from "@/config";
@@ -78,7 +76,7 @@ export const SingleBlog = async (id: string) => {
   }
 };
 
-export const BlogPost = async (data: IPost) => {
+export const BlogPost = async (data: any) => {
   console.log(data);
   try {
     const token = (await cookies()).get("accessToken")?.value;

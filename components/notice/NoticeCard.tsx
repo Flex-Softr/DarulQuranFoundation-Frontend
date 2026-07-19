@@ -12,17 +12,27 @@ export type Notice = {
 function formatDateParts(iso: string) {
   const d = new Date(iso);
   const day = d.getDate();
-  const weekday = d.toLocaleDateString('bn-BD', { weekday: 'short' });
-  const monthYear = d.toLocaleDateString('bn-BD', { month: 'long', year: 'numeric' });
+  const weekday = d.toLocaleDateString("bn-BD", { weekday: "short" });
+  const monthYear = d.toLocaleDateString("bn-BD", {
+    month: "long",
+    year: "numeric",
+  });
   return { day, weekday, monthYear };
 }
 
-export default function NoticeCard({ notice }: { notice: Notice }): JSX.Element {
+export default function NoticeCard({
+  notice,
+}: {
+  notice: Notice;
+}): JSX.Element {
   const { day, weekday, monthYear } = formatDateParts(notice.date);
   const href = notice.href || `/notice/${notice.id}`;
-  
+
   return (
-    <Link href={href} className="block rounded-2xl border border-emerald-200 bg-white p-6 md:p-8 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col sm:flex-row gap-6 items-start group hover:border-brand">
+    <Link
+      href={href as any}
+      className="rounded-2xl border border-emerald-200 bg-white p-6 md:p-8 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col sm:flex-row gap-6 items-start group hover:border-brand"
+    >
       <div className="text-center min-w-[80px] flex-shrink-0 bg-emerald-50 rounded-xl p-4 border border-emerald-100">
         <div className="text-xs font-medium text-gray-600 mb-1">{weekday}</div>
         <div className="text-4xl font-extrabold text-brand">{day}</div>
@@ -40,7 +50,9 @@ export default function NoticeCard({ notice }: { notice: Notice }): JSX.Element 
           {notice.title}
         </h3>
         {notice.excerpt && (
-          <p className="text-gray-700 leading-relaxed text-base md:text-lg">{notice.excerpt}</p>
+          <p className="text-gray-700 leading-relaxed text-base md:text-lg">
+            {notice.excerpt}
+          </p>
         )}
         <div className="mt-4 flex items-center gap-2 text-brand text-sm font-medium group-hover:text-brand-dark transition-colors">
           <span>বিস্তারিত দেখুন</span>
@@ -50,5 +62,3 @@ export default function NoticeCard({ notice }: { notice: Notice }): JSX.Element 
     </Link>
   );
 }
-
-
